@@ -1,0 +1,77 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Reglas de Cursor para ESP_MQTT_Vibe
+
+Este documento define las convenciones, configuraciones y mejores prácticas para trabajar con el proyecto ESP_MQTT_Vibe utilizando el IDE Cursor.
+
+## Configuración del Entorno
+
+// ... existing code ...
+
+## Convenciones de Código
+
+// ... existing code ...
+
+## Convenciones de Idioma
+
+### Reglas de Multilingüismo
+
+Para garantizar la compatibilidad internacional del código mientras se facilita la comunicación interna, se aplicarán las siguientes reglas:
+
+1. **Comunicación entre desarrolladores**:
+   - Utilizar español para todas las comunicaciones internas del equipo
+   - Discusiones en issues, pull requests y reuniones serán en español
+
+2. **Código**:
+   - Todo el código debe estar escrito en inglés
+   - Nombres de variables, funciones, clases y constantes deben ser en inglés
+   - Los comentarios en el código deben ser en inglés
+
+3. **Documentación**:
+   - README.md y otros archivos de documentación técnica en inglés
+   - Guías de usuario o instrucciones de instalación pueden estar en español e inglés
+   - Documentación API siempre en inglés
+
+4. **Mensajes de commit**:
+   - Utilizar inglés para los mensajes de commit siguiendo el formato establecido
+   - Las descripciones detalladas dentro del commit pueden incluir explicaciones en español si es necesario
+
+### Ejemplo de Aplicación
+
+```cpp
+/**
+ * Detects vibration from the boiler and determines its on/off status.
+ * Uses threshold comparison with configurable sensitivity.
+ */
+bool detectVibration() {
+  // Get accelerometer data
+  sensors_event_t event;
+  accel.getEvent(&event);
+  
+  // Calculate magnitude of vibration
+  float magnitude = sqrt(pow(event.acceleration.x, 2) + 
+                         pow(event.acceleration.y, 2) + 
+                         pow(event.acceleration.z - 9.8, 2));
+  
+  return magnitude > vibrationThreshold;
+}
+```
+
+## Flujo de Trabajo Git
+
+// ... existing code ...
+
+## Depuración
+
+// ... existing code ...
+
+## Despliegue
+
+// ... existing code ...
+
+## Recursos
+
+// ... existing code ...
