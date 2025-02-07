@@ -1,26 +1,26 @@
 # ESP32-H2 Boiler Vibration Monitoring System
 
-Este proyecto utiliza un ESP32-H2 con un sensor de aceleración ADXL345 para monitorear el estado de una caldera de gasóleo mediante la detección de vibraciones. El sistema se conecta a una red WiFi y a un broker MQTT para reportar el estado y también soporta actualizaciones OTA (Over The Air).
+This project uses an ESP32-H2 with an ADXL345 acceleration sensor to monitor the status of a diesel boiler by detecting vibrations. The system connects to a WiFi network and an MQTT broker to report status and also supports OTA (Over The Air) updates.
 
-## Características
+## Features
 
-- Detección de vibración para determinar si la caldera está encendida o apagada
-- Sensibilidad ajustable remotamente a través de MQTT
-- Conectividad WiFi
-- Comunicación MQTT para enviar estados y recibir configuraciones
-- Actualizaciones OTA a través de interfaz web
-- Monitoreo en tiempo real de niveles de vibración
+- Vibration detection to determine if the boiler is on or off
+- Remotely adjustable sensitivity via MQTT
+- WiFi connectivity
+- MQTT communication to send status and receive configurations
+- OTA updates via web interface
+- Real-time monitoring of vibration levels
 
-## Requisitos de Hardware
+## Hardware Requirements
 
-- ESP32-H2 (compatible con ESP32-H2-DevKitC-1)
-- Sensor acelerómetro ADXL345
-- Cable micro USB para programación inicial
-- Fuente de alimentación para la instalación final
+- ESP32-H2 (compatible with ESP32-H2-DevKitC-1)
+- ADXL345 accelerometer sensor
+- Micro USB cable for initial programming
+- Power supply for final installation
 
-## Conexiones
+## Connections
 
-Conecte el ADXL345 al ESP32-H2 de la siguiente manera:
+Connect the ADXL345 to the ESP32-H2 as follows:
 
 | ADXL345 | ESP32-H2 |
 | ------- | -------- |
@@ -29,42 +29,42 @@ Conecte el ADXL345 al ESP32-H2 de la siguiente manera:
 | SDA     | GPIO21   |
 | SCL     | GPIO22   |
 
-## Configuración
+## Configuration
 
-1. Clone este repositorio
-2. Abra el proyecto en PlatformIO
-3. Edite el archivo `src/main.cpp` para configurar:
-   - Credenciales WiFi
-   - Configuración del broker MQTT
-   - Ajuste la sensibilidad predeterminada según sea necesario
+1. Clone this repository
+2. Open the project in PlatformIO
+3. Edit the `src/main.cpp` file to configure:
+   - WiFi credentials
+   - MQTT broker configuration
+   - Adjust the default sensitivity as needed
 
-4. Compile y cargue el firmware al ESP32-H2
+4. Compile and upload the firmware to the ESP32-H2
 
-## Uso de MQTT
+## MQTT Usage
 
-El sistema publica en los siguientes tópicos MQTT:
+The system publishes to the following MQTT topics:
 
-- `boiler/status` - Estado de la caldera ("ON" u "OFF")
-- `boiler/vibration` - Valor numérico que indica el nivel de vibración actual
+- `boiler/status` - Boiler status ("ON" or "OFF")
+- `boiler/vibration` - Numerical value indicating the current vibration level
 
-El sistema se suscribe a:
+The system subscribes to:
 
-- `boiler/sensitivity/set` - Para ajustar remotamente el umbral de sensibilidad
+- `boiler/sensitivity/set` - To remotely adjust the sensitivity threshold
 
-## Actualización OTA
+## OTA Update
 
-Una vez que el dispositivo está conectado a la red WiFi, puede actualizar el firmware a través de la interfaz web:
+Once the device is connected to the WiFi network, you can update the firmware through the web interface:
 
-1. Acceda a `http://[IP-DEL-ESP32]/update` en su navegador
-2. Siga las instrucciones para cargar el nuevo firmware
+1. Access `http://[ESP32-IP]/update` in your browser
+2. Follow the instructions to upload the new firmware
 
-## Ajuste de Sensibilidad
+## Sensitivity Adjustment
 
-El umbral de sensibilidad determina cuánta vibración se requiere para considerar que la caldera está activa. Puede ajustarlo:
+The sensitivity threshold determines how much vibration is required to consider the boiler active. You can adjust it:
 
-1. Localmente cambiando la variable `vibrationThreshold` en el código
-2. Remotamente enviando un valor numérico al tópico MQTT `boiler/sensitivity/set`
+1. Locally by changing the `vibrationThreshold` variable in the code
+2. Remotely by sending a numeric value to the MQTT topic `boiler/sensitivity/set`
 
-## Licencia
+## License
 
-Este proyecto está disponible bajo la licencia MIT.
+This project is available under the MIT license.

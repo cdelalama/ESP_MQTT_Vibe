@@ -13,21 +13,21 @@ Este documento define las convenciones, configuraciones y mejores prácticas par
 
 Para una mejor experiencia de desarrollo, se recomienda tener las siguientes extensiones en Cursor:
 
-- **PlatformIO**: Para compilación y carga de firmware
-- **C/C++**: Para autocompletado y navegación por el código
-- **ESP-IDF**: Para funcionalidades específicas de ESP32
-- **MQTT Explorer**: Para pruebas y depuración de MQTT
+-   **PlatformIO**: Para compilación y carga de firmware
+-   **C/C++**: Para autocompletado y navegación por el código
+-   **ESP-IDF**: Para funcionalidades específicas de ESP32
+-   **MQTT Explorer**: Para pruebas y depuración de MQTT
 
 ### Configuración del Editor
 
 ```json
 {
-  "editor.formatOnSave": true,
-  "editor.tabSize": 2,
-  "editor.insertSpaces": true,
-  "files.eol": "\n",
-  "C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 2, ColumnLimit: 100 }",
-  "C_Cpp.formatting": "clangFormat"
+	"editor.formatOnSave": true,
+	"editor.tabSize": 2,
+	"editor.insertSpaces": true,
+	"files.eol": "\n",
+	"C_Cpp.clang_format_style": "{ BasedOnStyle: Google, IndentWidth: 2, ColumnLimit: 100 }",
+	"C_Cpp.formatting": "clangFormat"
 }
 ```
 
@@ -57,11 +57,12 @@ ESP_MQTT_Vibe/
 1. **Indentación**: Usar 2 espacios para la indentación, no tabulaciones.
 2. **Llaves**: Estilo K&R (llave de apertura en la misma línea que la declaración).
 3. **Nombres de variables**:
-   - Variables locales: `camelCase`
-   - Variables miembro: `m_camelCase`
-   - Constantes: `UPPER_SNAKE_CASE`
+    - Variables locales: `camelCase`
+    - Variables miembro: `m_camelCase`
+    - Constantes: `UPPER_SNAKE_CASE`
 4. **Nombres de funciones**: `camelCase`
 5. **Comentarios**: Documentar todas las funciones con un breve comentario explicativo.
+6. Siempre intentar hacer el codigo modular. Si hace falta generar archivos para sacar el codigo hazlo.
 
 ### Ejemplo de Formato de Código
 
@@ -73,10 +74,10 @@ ESP_MQTT_Vibe/
 bool detectVibration() {
   sensors_event_t event;
   accel.getEvent(&event);
-  
+
   // Cálculo de magnitud
   float magnitude = calculateMagnitude(event);
-  
+
   return magnitude > VIBRATION_THRESHOLD;
 }
 ```
@@ -85,10 +86,10 @@ bool detectVibration() {
 
 ### Ramas
 
-- `main`: Rama principal, contiene código estable
-- `develop`: Rama de desarrollo, integración de nuevas características
-- `feature/XXX`: Para nuevas características
-- `bugfix/XXX`: Para corrección de errores
+-   `main`: Rama principal, contiene código estable
+-   `develop`: Rama de desarrollo, integración de nuevas características
+-   `feature/XXX`: Para nuevas características
+-   `bugfix/XXX`: Para corrección de errores
 
 ### Commit Messages
 
@@ -103,10 +104,12 @@ Seguir el formato:
 ```
 
 Donde:
-- `<tipo>` puede ser: feat, fix, docs, style, refactor, test, chore
-- `<alcance>` es opcional y puede ser: wifi, mqtt, sensor, ota
+
+-   `<tipo>` puede ser: feat, fix, docs, style, refactor, test, chore
+-   `<alcance>` es opcional y puede ser: wifi, mqtt, sensor, ota
 
 Ejemplo:
+
 ```
 feat(sensor): implementar ajuste dinámico de sensibilidad
 
@@ -121,12 +124,14 @@ Issue: #12
 ### Configuración de Serial Monitor
 
 En PlatformIO:
-- Velocidad: 115200 baud
-- Usar Serial.println() para debugging
+
+-   Velocidad: 115200 baud
+-   Usar Serial.println() para debugging
 
 ### Depuración WiFi/MQTT
 
 Comandos útiles para el monitor serial:
+
 ```
 WIFI: Check connection status
 MQTT: Display current subscription topics
@@ -142,7 +147,7 @@ THRESHOLD: Display current sensitivity threshold
 
 ## Recursos
 
-- [Documentación ESP32-H2](https://docs.espressif.com/projects/esp-idf/en/latest/esp32h2/index.html)
-- [PlatformIO ESP32 Docs](https://docs.platformio.org/en/latest/platforms/espressif32.html)
-- [Biblioteca ADXL345](https://adafruit.github.io/Adafruit_ADXL345/html/class_adafruit___a_d_x_l345___unified.html)
-- [PubSubClient](https://pubsubclient.knolleary.net/)
+-   [Documentación ESP32-H2](mdc:https:/docs.espressif.com/projects/esp-idf/en/latest/esp32h2/index.html)
+-   [PlatformIO ESP32 Docs](mdc:https:/docs.platformio.org/en/latest/platforms/espressif32.html)
+-   [Biblioteca ADXL345](mdc:https:/adafruit.github.io/Adafruit_ADXL345/html/class_adafruit___a_d_x_l345___unified.html)
+-   
